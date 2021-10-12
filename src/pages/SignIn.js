@@ -2,6 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function SignIn() {
+
+    function handleClick(){
+        console.log("button clicked")
+    }
+
   return (
     <>
       <h1>Inloggen</h1>
@@ -9,7 +14,9 @@ function SignIn() {
 
       <form>
         <p>*invoervelden*</p>
-        <button>Inloggen</button>
+        <button type="button"
+                onClick={handleClick}
+        >Inloggen</button>
       </form>
 
       <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p>
