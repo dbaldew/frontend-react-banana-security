@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
+import {AuthContext} from "../Context/AuthContext";
+
 
 function SignIn() {
 
-    function handleClick(){
-        console.log("button clicked")
-    }
+    const {toggle} = useContext(AuthContext)
+
+    // function handleClick(){
+    //     console.log("button clicked")
+    // }
 
   return (
     <>
@@ -15,7 +19,7 @@ function SignIn() {
       <form>
         <p>*invoervelden*</p>
         <button type="button"
-                onClick={handleClick}
+                onClick={toggle}
         >Inloggen</button>
       </form>
 
