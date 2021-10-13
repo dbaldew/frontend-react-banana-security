@@ -17,6 +17,8 @@ function SignIn() {
         console.log(isAuth)
     }
 
+//data object: nog doen
+
   return (
     <>
       <h1>Inloggen</h1>
