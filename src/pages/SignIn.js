@@ -23,7 +23,12 @@ function SignIn() {
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias cum debitis dolor dolore fuga id molestias qui quo unde?</p>
 
       <form>
-        <p>*invoervelden*</p>
+          <label htmlFor="email">email:
+              <input type="text" id="email"/>
+          </label>
+          <label htmlFor="password">wachtwoord:
+              <input type="text" id="password"/>
+          </label>
         <button type="button"
                 onClick={handleClick}
         >Inloggen</button>
