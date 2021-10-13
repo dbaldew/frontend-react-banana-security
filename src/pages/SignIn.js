@@ -5,11 +5,15 @@ import {AuthContext} from "../Context/AuthContext";
 
 function SignIn() {
 
-    const {toggle} = useContext(AuthContext)
+    const {toggleAuth} = useContext(AuthContext);
+    const {isAuth} = useContext(AuthContext);
 
-    // function handleClick(){
-    //     console.log("button clicked")
-    // }
+//set state to logged in
+    function handleClick(){
+        if(!isAuth)toggleAuth(isAuth);
+        console.log("Gebruiker is ingelogd!")
+        console.log(isAuth)
+    }
 
   return (
     <>
@@ -19,7 +23,7 @@ function SignIn() {
       <form>
         <p>*invoervelden*</p>
         <button type="button"
-                onClick={toggle}
+                onClick={handleClick}
         >Inloggen</button>
       </form>
 

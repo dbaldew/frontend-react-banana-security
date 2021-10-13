@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import logo from '../assets/banana-01.png';
 import {useHistory, Link} from 'react-router-dom';
+import {AuthContext} from "../Context/AuthContext";
 
 function NavBar() {
     const history = useHistory();
+    const {toggleAuth} = useContext(AuthContext);
+    const {isAuth} = useContext(AuthContext);
+
+    //set state to logged out & redirect to "/"
+    function handleLogout(){
+        if(isAuth)toggleAuth(!isAuth);
+        history.push('/')
+        console.log("Gebruiker is uitgelogd!")
+        console.log(isAuth);
+    }
 
     return (
         <nav>
@@ -31,7 +42,7 @@ function NavBar() {
                 </button>
                 <button
                     type="button"
-                    onClick={() => history.push('/')}
+                    onClick={handleLogout}
                 >
                     Log out
                 </button>

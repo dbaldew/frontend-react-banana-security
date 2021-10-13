@@ -10,13 +10,12 @@ function AuthContextProvider({children}){
     const [isAuth, toggleIsAuth] = useState(false);
 
     //toggleAuth
-    function toggle(){
+    function toggleAuth(){
         toggleIsAuth(!isAuth);
-        console.log(`auth status: ${!isAuth}`)
     }
 
     return (
-        <AuthContext.Provider value={{toggle: toggle}}>
+        <AuthContext.Provider value={{toggleAuth:toggleAuth, isAuth:isAuth}}>
             {children}
         </AuthContext.Provider>
     )
