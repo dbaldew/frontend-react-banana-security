@@ -46,7 +46,7 @@ Je gaat de volgende concepten implementeren:
   state-toggle die wordt beheerd in de context:
 
 ```javascript
-const [isAuth, toggleIsAuth] = useState(false);
+const [authState, toggleIsAuth] = useState(false);
 ```
 
 * De navigatiebalk laat alleen een _uitlog_-knop zien bij `true` (ingelogd) of de _inlog_- en _registratie_-knoppen
@@ -76,7 +76,7 @@ Als je niet zo goed weet waar je moet beginnen, kun je onderstaand stappenplan v
 6. Lees de context uit in één van de pagina-componenten om te kijken of jouw eerste opzet functioneel is (
    met `useContext`)
 7. Gelukt? Top. Dan is het tijd om state aan te maken in het custom Provider-component. Noem deze
-   state-variabele `isAuth` of `isAuthenticated` en zet de initiële waarde op `false`. Geef de waarde van de state mee
+   state-variabele `authState` of `isAuthenticated` en zet de initiële waarde op `false`. Geef de waarde van de state mee
    aan het data object.
 8. Lees deze authenticatie-status uit in het `<NavBar />` component. Krijg je het te zien in de console? Zorg er dan
    voor dat je op basis van deze status een inloggen- en registreren-knop laat zien, **of** alleen een uitlog-knop.
@@ -96,9 +96,9 @@ Als je niet zo goed weet waar je moet beginnen, kun je onderstaand stappenplan v
   niets met de ingevulde data te doen, dit komt pas volgende les!
 
 **Bonus 2:**
-* Breidt de state uit van een boolean naar een object. De initiele waarde moet er zo uitzien: `{isAuth: false, user: ''}`
-* Nu de state een object is, werkt het togglen van `isAuth` natuurlijk ook anders in de login- en logout-functie. Pas dit aan zodat het weer werkt!
-* Zorg ervoor dat de inhoud van de state (dus de keys `isAuth` en `user`) worden doorgegeven in het data-object.
+* Breidt de state uit van een boolean naar een object. De initiele waarde moet er zo uitzien: `{authState: false, user: ''}`
+* Nu de state een object is, werkt het togglen van `authState` natuurlijk ook anders in de login- en logout-functie. Pas dit aan zodat het weer werkt!
+* Zorg ervoor dat de inhoud van de state (dus de keys `authState` en `user`) worden doorgegeven in het data-object.
 * Zorg er dan nu voor dat het _emailadres_ wordt meegegeven bij het aanroepen van de login functie vanuit `SignIn.js`
 * Zorg ervoor dat er in het custom Provider-component voor gezorgd wordt dat dat emailadres wordt opgeslagen onder `user` in de state.
 * Laat, als er een gebruiker is ingelogd, het emailadres zien in de navigatie.
