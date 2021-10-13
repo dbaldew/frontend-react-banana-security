@@ -28,24 +28,25 @@ function NavBar() {
             </Link>
 
             <div>
-                <button
+                {/*conditional render*/}
+                {!isAuth&&<button
                     type="button"
                     onClick={() => history.push('/signin')}
                 >
                     Log in
-                </button>
-                <button
+                </button>}
+                {!isAuth&&<button
                     type="button"
                     onClick={() => history.push('/signup')}
                 >
                     Registreren
-                </button>
-                <button
+                </button>}
+                {isAuth&&<button
                     type="button"
                     onClick={handleLogout}
                 >
                     Log out
-                </button>
+                </button>}
             </div>
         </nav>
     );
