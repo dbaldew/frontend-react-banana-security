@@ -8,7 +8,7 @@ function NavBar() {
     const {toggleAuth} = useContext(AuthContext);
     const {isAuth} = useContext(AuthContext);
 
-    //set state to logged out & redirect to "/"
+    //set state to logged out - redirect to '/'
     function handleLogout(){
         if(isAuth)toggleAuth(!isAuth);
         history.push('/')

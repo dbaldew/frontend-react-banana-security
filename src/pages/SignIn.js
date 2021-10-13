@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory,Link } from 'react-router-dom';
 import {AuthContext} from "../Context/AuthContext";
 
 
@@ -7,10 +7,12 @@ function SignIn() {
 
     const {toggleAuth} = useContext(AuthContext);
     const {isAuth} = useContext(AuthContext);
+    const history = useHistory();
 
-//set state to logged in
+//set state to logged in - redirect to '/profile'
     function handleClick(){
         if(!isAuth)toggleAuth(isAuth);
+        if(!isAuth)history.push('/profile');
         console.log("Gebruiker is ingelogd!")
         console.log(isAuth)
     }
