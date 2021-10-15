@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect} from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Profile from './pages/Profile';
 import Home from './pages/Home';
@@ -11,16 +11,7 @@ import {AuthContext} from "./Context/AuthContext";
 
 function App() {
 
-    //private route
     const {isAuth} = useContext(AuthContext);
-
-    function PrivateRoute({children, isAuth}){
-        return(
-            <Route>
-                {isAuth? children:<Redirect to="/"/>}
-            </Route>
-        )
-    }
 
   return (
     <>
@@ -30,9 +21,9 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <PrivateRoute path="/profile" isAuth={isAuth}>
-            <Profile />
-          </PrivateRoute>
+            <Route path="/profile">
+                {isAuth?<Profile />:<Redirect to="/"/>}
+            </Route>
           <Route exact path="/signin">
             <SignIn />
           </Route>

@@ -1,20 +1,11 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import logo from '../assets/banana-01.png';
-import {useHistory, Link} from 'react-router-dom';
-import {AuthContext} from "../Context/AuthContext";
+import { useHistory, Link } from 'react-router-dom';
+import{AuthContext} from "../Context/AuthContext";
 
 function NavBar() {
+    const { isAuth, logout } = useContext(AuthContext);
     const history = useHistory();
-    const {toggleAuth} = useContext(AuthContext);
-    const {isAuth} = useContext(AuthContext);
-
-    //set state to logged out - redirect to '/'
-    function handleLogout(){
-        if(isAuth)toggleAuth(!isAuth);
-        history.push('/')
-        console.log("Gebruiker is uitgelogd!")
-        console.log(isAuth);
-    }
 
     return (
         <nav>
@@ -27,27 +18,29 @@ function NavBar() {
           </span>
             </Link>
 
-            <div>
-                {/*conditional render*/}
-                {!isAuth&&<button
+            {isAuth ?
+                <button
                     type="button"
-                    onClick={() => history.push('/signin')}
+                    onClick={logout}
                 >
-                    Log in
-                </button>}
-                {!isAuth&&<button
-                    type="button"
-                    onClick={() => history.push('/signup')}
-                >
-                    Registreren
-                </button>}
-                {isAuth&&<button
-                    type="button"
-                    onClick={handleLogout}
-                >
-                    Log out
-                </button>}
-            </div>
+                    Log uit
+                </button>
+                :
+                <div>
+                    <button
+                        type="button"
+                        onClick={() => history.push("/signin")}
+                    >
+                        Log in
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => history.push("/signup")}
+                    >
+                        Registreren
+                    </button>
+                </div>
+            }
         </nav>
     );
 }
